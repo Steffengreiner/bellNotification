@@ -1,0 +1,24 @@
+qube_version: '2.6.1 # <<QUBE_NO_BUMP>>'
+full_name: Steffen Greiner
+email: Steffen.Greiner@uni-tuebingen.de
+project_name: Bellnotification
+project_short_description: bellnotificationviewer
+version: 0.1.0-SNAPSHOT
+domain: portlet
+language: groovy
+project_slug: Bellnotification
+project_slug_no_hyphen: Bellnotification
+template_version: '1.0.4 # <<QUBE_NO_BUMP>>'
+template_handle: portlet-groovy
+github_username: steffengreiner
+creator_github_username: steffengreiner
+is_github_repo: false
+is_repo_private: false
+is_github_orga: false
+copyright_holder: QBiC
+license: GNUv3
+main_class_prefix: Qbic
+use_openbis_client: no
+use_openbis_raw_api: no
+use_qbic_databases: no
+use_vaadin_charts: yes

@@ -8,9 +8,7 @@ import com.vaadin.ui.Button
 import com.vaadin.ui.HorizontalLayout
 import com.vaadin.ui.Label
 import com.vaadin.ui.Layout
-import com.vaadin.ui.TextField
 import com.vaadin.ui.VerticalLayout
-import com.vaadin.ui.Window
 import com.vaadin.ui.themes.ValoTheme
 import groovy.transform.CompileStatic
 import groovy.util.logging.Log4j2
@@ -53,7 +51,6 @@ class QbicPortlet extends QBiCPortletUI {
         notificationButton.addStyleName(ValoTheme.BUTTON_ICON_ONLY)
         notificationButton.addStyleName("notification-button")
         notificationButton.setDescription(notificationNumber.toString() + " unread notifications")
-
         // Add components to layout
         verticalLayout.addComponent(notificationLayout)
         notificationLayout.addComponent(notificationButton)
@@ -64,6 +61,7 @@ class QbicPortlet extends QBiCPortletUI {
         // Example implementation on how the label can be removed after clicking the button
         notificationButton.addClickListener({
             notificationLayout.removeComponent(notificationLabel)
+            notificationButton.setDescription("")
         })
         return verticalLayout
     }

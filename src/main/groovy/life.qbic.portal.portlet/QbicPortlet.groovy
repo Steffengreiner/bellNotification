@@ -8,6 +8,7 @@ import com.vaadin.ui.Button
 import com.vaadin.ui.HorizontalLayout
 import com.vaadin.ui.Label
 import com.vaadin.ui.Layout
+import com.vaadin.ui.ProgressBar
 import com.vaadin.ui.VerticalLayout
 import com.vaadin.ui.themes.ValoTheme
 import groovy.transform.CompileStatic
@@ -27,42 +28,15 @@ class QbicPortlet extends QBiCPortletUI {
 
     //Overview Layout
     VerticalLayout verticalLayout
-    //Horizontal Layout storing the button and badge
-    HorizontalLayout notificationLayout
-    //Label storing the notification number
-    Label notificationLabel
-    //Bell button for clicking and showing details notification
-    Button notificationButton
+
     @Override
     protected Layout getPortletContent(final VaadinRequest request) {
 
         // Init Layouts
         verticalLayout = new VerticalLayout()
-        notificationLayout = new HorizontalLayout()
-
-        // Init notification badge
         int notificationNumber = 100
-        notificationLabel = new Label(notificationNumber.toString())
-        notificationLabel.addStyleName("notification-badge")
-
-        // Init notification button
-        notificationButton = new Button()
-        notificationButton.setIcon(VaadinIcons.BELL)
-        notificationButton.addStyleName(ValoTheme.BUTTON_ICON_ONLY)
-        notificationButton.addStyleName("notification-button")
-        notificationButton.setDescription(notificationNumber.toString() + " unread notifications")
-        // Add components to layout
-        verticalLayout.addComponent(notificationLayout)
-        notificationLayout.addComponent(notificationButton)
-        notificationLayout.addComponent(notificationLabel)
-        // remove default spacing between label and button
-        notificationLayout.setSpacing(false)
-
-        // Example implementation on how the label can be removed after clicking the button
-        notificationButton.addClickListener({
-            notificationLayout.removeComponent(notificationLabel)
-            notificationButton.setDescription("")
-        })
+        BellNotification bellNotification = new BellNotification(notificationNumber)
+        verticalLayout.addComponent(bellNotification)
         return verticalLayout
     }
 }
